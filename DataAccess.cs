@@ -9,17 +9,14 @@ namespace CityDBTest
 {
     public class DataAccess
     {
-        public List<City> GetEntries(string table, string column, string restriction)
+        public List<City> GetEntries(string[] terms)
         {
-            //MySql.Data.MySqlClient.MySqlConnectionStringBuilder mySqlConnection;
-            //mySqlConnection = new MySqlConnectionStringBuilder(Helper.ConnectionVal("WorldDB"));
-            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionVal("WorldDB")))
-            using (MySqlConnection connection = new MySqlConnection(Helper.ConnectionVal("WorldDB")))
+            using (MySqlConnection connection = new MySqlConnection(Helper.ConnectionVal("WorldCloudDB")))
             {
                 try
                 {
-                    var output = connection.Query<City>($"select * from {table} where {column} = '{restriction}'")
-                        .ToList();
+                    var output = connection.Query<City>($"select * from {terms[0]}").ToList();
+                    //var output = connection.Query<Grid>($"select * from {terms[0]} where {terms[1]} = '{terms[2]}'").ToList();
                     return output;
                 }
                 catch(NullReferenceException)

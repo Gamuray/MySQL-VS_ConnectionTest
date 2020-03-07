@@ -9,9 +9,9 @@ namespace CityDBTest
         
 
 
-        public List<City> SearchByDistrict(string[] searchTerms, DataAccess db, List<City> entries)
+        public List<City> SearchByTerms(string[] searchTerms, DataAccess db)
         {
-           return entries = db.GetEntries(searchTerms[0], searchTerms[1], searchTerms[2]);
+           return db.GetEntries(searchTerms);
         }
 
         public void PrintList(List<City> entries)

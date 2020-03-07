@@ -14,14 +14,15 @@ namespace CityDBTest
             Controller controller = new Controller();
 
             string[] searchTerms = new string[3];
-            Console.WriteLine("Table: ");
-            searchTerms[0] = Console.ReadLine();
-            Console.WriteLine("Column: ");
+            //Console.WriteLine("Table: ");
+            searchTerms[0] = "city";
+                //Console.ReadLine();
+            Console.WriteLine("Enter search category : ");
             searchTerms[1] = Console.ReadLine();
-            Console.WriteLine("Restriction: ");
+            Console.WriteLine("Enter your search restriction: ");
             searchTerms[2] = Console.ReadLine();
 
-            _entries = controller.SearchByDistrict(searchTerms, _db, _entries);
+            _entries = controller.SearchByTerms(searchTerms, _db);
             controller.PrintList(_entries);
         }
 
