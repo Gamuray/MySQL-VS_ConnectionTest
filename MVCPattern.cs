@@ -23,7 +23,7 @@ namespace CityDBTest
             searchTerms[2] = Console.ReadLine();
 
             _entries = controller.SearchByTerms(searchTerms, _db);
-            controller.PrintList(_entries);
+            //controller.PrintList(_entries);
         }
 
 
